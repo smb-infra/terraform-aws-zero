@@ -36,6 +36,6 @@ variable "user_auth_mail_from_address" {
 }
 
 variable "jwks_secret_name" {
-  description = "jwks_secret_name"
+  description = "The name of a secret in the auth namespace containing a JWKS file for Oathkeeper"
   type        = string
 }
