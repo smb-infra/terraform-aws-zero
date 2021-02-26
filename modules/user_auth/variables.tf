@@ -34,3 +34,9 @@ variable "jwks_secret_name" {
   description = "The name of a secret in the auth namespace containing a JWKS file for Oathkeeper"
   type        = string
 }
+
+variable "whitelisted_return_urls" {
+  description = "URLs for init flow to specify and 302 redirects upon flow completion"
+  type  = list(string)
+  default = []
+}

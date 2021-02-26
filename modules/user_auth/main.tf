@@ -59,9 +59,13 @@ resource "helm_release" "kratos" {
     value = "https://${var.frontend_service_domain}/"
   }
 
-  set {
-    name  = "kratos.config.selfservice.whitelisted_return_urls[0]"
-    value = "https://${var.frontend_service_domain}/"
+  dynamic "set" {
+    for_each = var.whitelisted_return_urls
+    iterator = whitelist_url
+    content {
+      name  = "kratos.config.selfservice.whitelisted_return_urls[${whitelist_url.key}]"
+      value = whitelist_url.value
+    }
   }
 
   set {
