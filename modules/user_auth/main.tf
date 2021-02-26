@@ -50,27 +50,7 @@ resource "helm_release" "kratos" {
 
   set {
     name  = "kratos.config.serve.admin.base_url"
-    value = "https://admin.${var.auth_domain}"
-  }
-
-  set {
-    name  = "ingress.public.hosts[0].host"
-    value = var.auth_domain
-  }
-
-  set {
-    name  = "ingress.public.tls[0].hosts[0]"
-    value = var.auth_domain
-  }
-
-  set {
-    name  = "ingress.admin.hosts[0].host"
-    value = "admin.${var.auth_domain}"
-  }
-
-  set {
-    name  = "ingress.admin.tls[0].hosts[0]"
-    value = "admin.${var.auth_domain}"
+    value = "https://${var.backend_service_domain}/.ory/kratos/"
   }
 
   # Return urls

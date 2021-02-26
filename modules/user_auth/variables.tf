@@ -2,11 +2,6 @@ variable "project" {
   description = "The name of the project"
 }
 
-variable "auth_domain" {
-  description = "Domain to use for authentication"
-  type        = string
-}
-
 variable "auth_namespace" {
   description = "Namespace to use for auth resources"
   type        = string

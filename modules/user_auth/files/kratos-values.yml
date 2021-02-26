@@ -3,29 +3,6 @@ image:
   tag: v0.5.4-alpha.1-sqlite
   pullPolicy: IfNotPresent
 
-ingress:
-  public:
-    enabled: true
-    annotations:
-        kubernetes.io/ingress.class: nginx
-        # nginx.ingress.kubernetes.io/rewrite-target: /$1
-        cert-manager.io/cluster-issuer: clusterissuer-letsencrypt-production
-    hosts: # Filled by user_auth.tf
-      - paths: ["/"]
-    tls:
-      - secretName: kratos-public-tls-secret
-
-  admin:
-    enabled: true
-    annotations:
-        kubernetes.io/ingress.class: nginx
-        # nginx.ingress.kubernetes.io/rewrite-target: /$1
-        cert-manager.io/cluster-issuer: clusterissuer-letsencrypt-production
-    hosts: # Filled by user_auth.tf
-      - paths: ["/"]
-    tls:
-      - secretName: kratos-admin-tls-secret
-
 # To set up OIDC you can uncomment this and create a secret which contains the
 # OIDC provider configuration in JSON format in an env var called SELFSERVICE_METHODS_OIDC
 # See README.md for more info
