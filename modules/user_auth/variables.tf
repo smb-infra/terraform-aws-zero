@@ -37,6 +37,6 @@ variable "jwks_secret_name" {
 
 variable "whitelisted_return_urls" {
   description = "URLs for init flow to specify and 302 redirects upon flow completion"
-  type  = list(string)
-  default = []
+  type        = list(string)
+  default     = []
 }
